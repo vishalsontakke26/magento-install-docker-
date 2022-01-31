@@ -1,0 +1,60 @@
+
+
+cd /var/www/
+
+composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition2.4.3 .
+
+ls
+
+php version
+
+update-alternatives --config php
+
+https://tastethelinux.com/how-to-install-mysql-in-linuxcetnos-ubuntu/
+mysql 8.0
+
+
+CREATE DATABASE jitendra_mag;
+
+mysql> CREATE USER 'jitendra_user'@'localhost' IDENTIFIED BY 'Sysne@2022';
+
+mysql> GRANT ALL ON jitendra_mag.* TO 'jitendra_user'@'localhost';
+
+
+__________________________________________________________________________________________________________________________________________
+
+############ mysql 8.0
+	
+### CREATE magento240
+mysql> CREATE DATABASE magento243;
+ 
+### CREATE USER ACCOUNT
+mysql> CREATE USER 'magento243'@'localhost' IDENTIFIED BY 'Project@2021**';
+ 
+### GRANT PERMISSIONS ON DATABASE
+mysql> GRANT ALL ON magento243.* TO 'magento243'@'localhost';
+ 
+###  RELOAD PRIVILEGES
+mysql> FLUSH PRIVILEGES;
+
+### TO CHANGE ROOT PASSWORD
+ALTER USER 'root'@'localhost' IDENTIFIED  BY 'pass123';
+
+https://stackoverflow.com/questions/43094726/your-password-does-not-satisfy-the-current-policy-requirements
+
+
+______________________________________________________________________________________________________________________________________________________________
+
+
+php bin/magento setup:install --base-url=http://192.168.0.128/magento/magento/magento243/ --backend-frontname=backend --db-host=localhost --db-name=jitendra_mag --db-user=jitendra_user --db-password=sysne2021 --admin-firstname=Magento --admin-lastname=User --admin-email=developer@oscprofessionals.in --admin-user=developer --admin-password=developer456 --language=en_US --currency=USD --timezone=America/Chicago
+
+
+
+
+
+
+https://github.com/echo-magento/docker-magento2
+
+
+
+

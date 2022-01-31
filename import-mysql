@@ -1,0 +1,156 @@
+
+cd /var/www/html/magento/magento24
+
+________________________________________________________________________
+
+git clone https://github.com/mowadigital/magento-docker-compose.git
+__________________________________________________________________
+
+Go into the folder
+cd <name folder>
+____________________________________________________________________
+
+
+
+Edit the docker-copmose.yml file (with VIM) VIM cheat Sheet
+vi docker-compose.yml
+
+
+version: '3.3'
+
+services:
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: magento002
+       MYSQL_USER: magento002
+       MYSQL_PASSWORD: magento002
+
+   magento:
+     depends_on:
+       - db
+     image: alexcheng/magento2:latest
+     ports:
+       - "8002:80"
+     restart: always
+     environment:
+       MAGENTO_DB_HOST: db:3306
+       MAGENTO_DB_USER: magento002
+       MAGENTO_DB_PASSWORD: magento002
+       MAGENTO_DB_NAME: magento002
+
+volumes:
+   db_data: {}
+~                                                                                                                                                                         Replace 'magento002' with magentodemo
+:%s/old/new/g (replace all old with new throughout file)
+
+:%s/magento002/magentodemo/g      
+%s/magento24/magentodemo/g        
+
+wq!
+__________________________________________________________________________
+
+Run Docker (this will create/pull the images)
+ 
+  docker-compose up -d
+
+  docker ps
+  
+  ------------------------------------------------------------------------------------------
+  
+  localhost:8002
+  
+ magento setup
+ 
+ Database server Host :- db
+                 username:-root
+                 password:- root
+                 
+______________________________________________________________________________________________________
+
+
+Step 1: Readiness Check
+Completed! You can now move on to the next step.
+PHP Version Check
+Your PHP version is correct (7.2.12).
+
+PHP Settings Check *
+Your PHP settings are correct.
+
+PHP Extensions Check
+You meet 21 out of 21 PHP extensions requirements. Show detail
+
+File Permission Check
+You meet 5 out of 5 writable file permission requirements.
+
+
+
+-------------------------------------------------------------------------------------------
+Step 2: Add a Database
+
+Database Server Host
+db
+Database Server Username
+root
+Database Server Password
+•••••
+Database Name
+magento24
+Table prefix
+(optional)
+________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+ 
+  CREATE DATABASE magento24;
+  
+  CREATE USER 'magento24'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Sysne@20';
+  
+  GRANT ALL PRIVILEGES ON magento24.* TO 'magento24'@'localhost';
+  
+   FLUSH PRIVILEGES;
+
+
+                 
+                 
+                 
+php bin/magento setup:install --base-url=http://localhost --backend-frontname=backend --db-host=db --db-name=magento --db-user=root --db-password=magento --admin-firstname=Magento --admin-lastname=User --admin-email=developer@oscprofessionals.in --admin-user=developer --admin-password=developer456 --language=en_US --currency=USD --timezone=America/Chicag
+ 
+ sudo systemctl stop mariadb
+
+
+
+
+
+
+
+
+
+create databases magento2322;
+
+/var/www/html/magento/#
+
+
+php bin/magento setup:install --base-url=http://192.168.0.130/magento/magento23/magento2-2.3.7-p2/ --backend-frontname=backend --db-host=localhost --db-name= magento2322 --db-user=magento2322 --db-password=sysne@2022 --admin-firstname=Magento --admin-lastname=User --admin-email=developer@oscprofessionals.in --admin-user=developer --admin-password=developer456 --language=en_US --currency=USD --timezone=America/Chicago
+
+
+
+
+
+
+
+
+
+
+
